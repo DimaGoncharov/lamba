@@ -1,23 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   desicion.c                                            :+:      :+:    :+:   */
+/*   desicion.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptorchbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 19:59:16 by ptorchbu          #+#    #+#             */
-/*   Updated: 2019/09/21 17:30:11 by ptorchbu         ###   ########.fr       */
+/*   Updated: 2019/10/14 18:49:54 by ptorchbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+static	int		min(int a, int b)
+{
+	return (a > b ? b : a);
+}
+
+/*
+**	Возвращает количество максимально возможных маршрутов
+**	Соответствует минимальному числу исходящих маршрутов
+**	от начального и конечного узлов и количеству муравьев
+*/
+
+int				max_routes(t_lem_in *lem_in)
+{
+	int	res;
+	int	start;
+	int	end;
+
+	start = lem_in->start->links_count;
+	end = lem_in->end->links_count;
+	res = min(start, end);
+	res = min(res, lem_in->total_ants);
+	return (res);
+}
 
 /*
 **	Запускает обход Эдмондса-Карпа как можно чаще и
 **	каждый раз записывает группу маршрутов
 */
 
-static t_group	*create_best_group(t_lem_in *lem_in)
+static	t_group	*create_best_group(t_lem_in *lem_in)
 {
 	t_group			*best_group;
 	t_group			*group;
@@ -54,6 +78,7 @@ void			solve(t_lem_in *lem_in, t_solution *solution)
 {
 	t_group		*best_group;
 
+	resolve_initialization(&(*solution));
 	lem_in->max_routes = max_routes(lem_in);
 	best_group = create_best_group(lem_in);
 	if (best_group == NULL || best_group->routes == NULL)

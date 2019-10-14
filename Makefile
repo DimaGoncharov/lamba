@@ -9,22 +9,14 @@ SOURCES		+= main.c \
 SOURCES		+= $(addprefix bfs/, \
 			start_bfs.c \
 			start_bfs_head.c \
-			start_bfs_2.c tree_bfs.c \
-			tree_bfs_2.c)
+			start_bfs_2.c tree_bfs.c)
 SOURCES		+= $(addprefix parser/, \
 			parser.c \
 			head_parser.c \
-			improver.c \
-			parser2.c )
+			improver.c )
 SOURCES		+= $(addprefix g_list/, \
 			ft_add_glist.c\
-			ft_copy_glist.c \
-			ft_delete_glist.c \
-			ft_delone_glist.c \
-			ft_content_glist.c \
 			ft_length_glist.c \
-			ft_new_glist.c \
-			ft_reverse_glist.c \
 			ft_sort_glist.c )
 SOURCES		+= $(addprefix head/, \
 			spread_of_ants.c \
@@ -44,8 +36,7 @@ SOURCES		+= $(addprefix resolveconstruct/, \
 			resolve_construct.c )
 SOURCES		+= $(addprefix decision/, \
 			change_ways.c \
-			decision.c \
-			decision2.c)
+			decision.c)
 SOURCES		+= $(addprefix process/, \
 			processing.c \
 			create_array.c)

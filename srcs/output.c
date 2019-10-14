@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.c                                          :+:      :+:    :+:   */
+/*   output.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptorchbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 19:48:42 by ptorchbu          #+#    #+#             */
-/*   Updated: 2019/09/18 19:48:47 by ptorchbu         ###   ########.fr       */
+/*   Updated: 2019/10/14 18:38:25 by ptorchbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,12 @@ void	print_line(t_list *display)
 **	Печать строк
 */
 
-void	print_output(t_lem_in *lem_in)
+void	print_output(t_lem_in *lem_in, t_solution *solution)
 {
 	ft_lstrev(&lem_in->display);
 	print_line(lem_in->display);
 	ft_printf("\n");
+	print_solve((*lem_in), solution);
 }
 
 /*

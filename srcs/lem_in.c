@@ -50,8 +50,9 @@ void	lem_addroom(t_lem_in *lem_in, t_room *room)
 **	Чистка элементов лем-ина
 */
 
-void	lem_free(t_lem_in *lem_in)
+void	lem_free(t_lem_in *lem_in, t_solution *solution)
 {
+	resolve_free(&(*solution));
 	ft_delete_glist(&lem_in->rooms, room_free);
 	free(lem_in->array_room);
 	free_output(lem_in);

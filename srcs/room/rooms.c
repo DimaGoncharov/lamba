@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rooms.c                                             :+:      :+:    :+:   */
+/*   rooms.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptorchbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 19:56:48 by ptorchbu          #+#    #+#             */
-/*   Updated: 2019/09/18 19:56:50 by ptorchbu         ###   ########.fr       */
+/*   Updated: 2019/10/14 18:43:27 by ptorchbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	Создает новую комнату
 */
 
-t_room	*create_newroom(char *name, t_roomtype type, int x, int y)
+t_room	*create_newroom(char *name, t_roomtype type)
 {
 	t_room		*res;
 	static int	id;
@@ -25,8 +25,6 @@ t_room	*create_newroom(char *name, t_roomtype type, int x, int y)
 	res->id = id;
 	res->name = ft_strdup(name);
 	res->type = type;
-	res->pos.x = x;
-	res->pos.y = y;
 	id++;
 	return (res);
 }

@@ -6,11 +6,20 @@
 /*   By: ptorchbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 19:52:53 by ptorchbu          #+#    #+#             */
-/*   Updated: 2019/09/21 17:46:00 by ptorchbu         ###   ########.fr       */
+/*   Updated: 2019/10/14 18:32:09 by ptorchbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+void	tree_deletelist(t_lem_in *lem_in, t_glist **trees)
+{
+	while ((*trees) != NULL)
+	{
+		tree_del(lem_in, (*trees)->gen.tree);
+		ft_delone_glist(trees, NULL);
+	}
+}
 
 t_tree	*tree_new(t_lem_in *lem_in)
 {
